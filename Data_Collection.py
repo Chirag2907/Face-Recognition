@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import os
 
 cam = cv2.VideoCapture(0)
 model = cv2.CascadeClassifier("haarcascade_frontalface_alt.xml")
@@ -34,9 +33,7 @@ while True:
             print("saved so far: ", len(data))
 
     cv2.flip(frame, 1, frame)
-    cv2.flip(cropped_img, 1, cropped_img)
     cv2.imshow('video', frame)
-    cv2.imshow('cropped', cropped_img)
     key = cv2.waitKey(1)
     if key==ord('q'):
         break
