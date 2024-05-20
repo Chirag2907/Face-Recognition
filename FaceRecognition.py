@@ -2,6 +2,8 @@ import cv2
 import os
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn import svm
+from sklearn.ensemble import RandomForestClassifier
 
 # Importing dataset
 dataset_path = "./data/"
@@ -26,9 +28,16 @@ for f in os.listdir(dataset_path):
 X_train = np.concatenate(faceData, axis=0)
 y_train = np.concatenate(labels, axis=0)
 
-# Model Training
-k = int(np.sqrt(X_train.shape[0]))
-model = KNeighborsClassifier(n_neighbors=k, metric='minkowski', p=2)
+# KNN Model Training
+# model = KNeighborsClassifier(n_neighbors=20, metric='minkowski', p=2)
+# model.fit(X_train, y_train)
+
+# SVM Model Training
+# model = svm.LinearSVC(dual='auto')
+# model.fit(X_train, y_train)
+
+# Random Forest Model Training
+model = RandomForestClassifier(n_estimators=200, criterion='log_loss', min_samples_split=20)
 model.fit(X_train, y_train)
 
 # Prediction!

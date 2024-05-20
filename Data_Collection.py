@@ -31,6 +31,8 @@ while True:
         if skip%10==0:
             data.append(cropped_img)
             print("saved so far: ", len(data))
+            if skip==200:
+                break
 
     cv2.flip(frame, 1, frame)
     cv2.imshow('video', frame)
