@@ -41,7 +41,6 @@ model = RandomForestClassifier(n_estimators=200, criterion='log_loss', min_sampl
 model.fit(X_train, y_train)
 
 # Prediction!
-
 cam = cv2.VideoCapture(0)
 classifer = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
 offset = 50
